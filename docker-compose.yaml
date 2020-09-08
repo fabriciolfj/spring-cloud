@@ -1,0 +1,20 @@
+version: "2"
+services:
+  rabbit:
+    image: "rabbitmq:3-management"
+    container_name: prepaid.rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+  mysql:
+    image: mysql:5.7.21
+    command: --lower_case_table_names=1
+    environment:
+      MYSQL_DATABASE: "photo_app"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+    ports:
+      - 3306:3306

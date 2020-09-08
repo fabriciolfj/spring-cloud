@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/photo_app
+    password: '{cipher}AgBdoN2eqEn9PZ/Ez3bmvpsFdkN3P1DExxq5O42cepp5NAexeqQNMs/FRvzHIbHvIKQG6PeNjlWZnFZ0nE+i2nPngK6lhpgHl7AxmK3bvRNfQxeOJ9lkdE/uQu0plOSmEDPQZi76thyQTcIUTryIp+n1HohrfU1TUkS6mC1PUsPcYt0PzkwZop/2U7SWB9cEkYwc0LEUOyJrpbpj3NhuRuEpBG/u4Y/OalsEA4X3ScRUsyJmqeHNwaRrFCG1h6B5ibLmhIbXIVAXef6c7w2khQ4qB2TlJJxvHoiGzCVsd3gQFH7RP7ZnWhPldnceh1NlJzHwXN6q90GRxJkH7I8RzOitPfF5J8GwAszcmaSIlfVzSYAc60Oc8f90l5kJPJXPgGoxYdl6rfaVJPpt5sxAe8lb9HYAkEF2Ks2ccrYdDb8cilOjOyBC394WFbyu81yV9aWiA4GkQbqviLcVtySWl1AqaEo1lQ+bIMnWj65YDUtc3py6tWZpzdpsgkkkxoRm484+vTcKUyomFwQHpbTuGWureHH8qY4kPCmsSrOAFe3Y3bJVQlXDCsM35w2kUdsa3P0koP3u/4wkKxGK7TvBx45GSHRpy6D76J6gwtfRmHgIH1GUA+8aKtEhjuWBBj7mEp7wZz9RMV9ACyh6q/RZhG9y//WLQ+2IdWJW6eZti3nHaqiNGFc53SkHYMrmoKDVZEHmmoayiE5wBRrWnxVgLb/N'
+    username: '{cipher}AgCg+BHXcseJX8+wa92fmCxQMqs9fu9NAWXSOKtq2ufM8+pgbvavq4Rsb3V8PpUq6WiUbiKHvI0baarZuAS88/euyHIgkoTxr8ivD2GJ2B1iiF9d9xDFhV/5OU6nMfWSCIwLWrveq5qZLQknXqbxwGjCmr+wpJlykdYX/9S+96kwhxFdaPsBx6F47gBtwnJ0lL/X4timkcKop0KLQxj8pLXi+4ELJ15E74S6BqyUt/kEnDmyv2AKEhJh/TzYndkygFVMi9u++QT8Qc7tnnI5sPxBsQIxffXx4SXHrJJNQm7KgjEkBUhaM3TtWTql1OJJ3ss3TVV60kxEznoiemfNN5Tn/eCnSu/D7rtcd3u8tJDrIuGia7totw8FQ5dn3DDQvzzQNgvI+xrEGJvd20lDGWK+WoOH5/Owbg+CVRfq7FUbzKK5ioT+3N039fLwMg4cW9sDTeUNGi8uqM+ne91kJ71I9OOjgNxxkvNmiq0koHzeTwr9Fi5fWmy7UVQbftnceaGyRlbUdfYWAf/RDijpd/5SGMwoXq2GChoBLkY1XsQFMSs5Owoh+RxIf1jLXcD+2m+Gf6ee0/jTaTNrxLzMbkpfklaDmQ80KWa5axTaGFHTDyjsZNADJ6hC7B5Y30FFm24OAjNIO75aLvbZCmz4i3OF6bDjSIvCWSdruv6hZ6A4ihWEAK0BTvWgdui1sH858hDSMg2qSJIvW7qo6TlO5Yt6'
+  jpa:
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - info
+          - mappings
+          - health

@@ -1,0 +1,7 @@
+token.expiration_time: 86400
+token.secret: teste2
+login.url.path: /users/login
+
+eureka:
+  client:
+    serviceUrl.defaultZone: http://localhost:8010/eureka

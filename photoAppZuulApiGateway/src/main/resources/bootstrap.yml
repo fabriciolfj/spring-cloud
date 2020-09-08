@@ -1,0 +1,34 @@
+server:
+  port: 8011
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    config:
+      name: configServer
+      uri: http://localhost:8012
+  application:
+    name: zull
+
+api.h2console.url.path: /user-ws/h2-console/**
+api.registration.url.path: /user-ws/users
+api.login.url.path: /user-ws/users/login
+api.zuul.actuator.url.path: /actuator/*
+api.users.actuator.url.path: /user-ws/actuator/*
+
+authorization.token.header.name: Authorization
+authorization.token.header.prefix: Bearer
+token.secret: teste
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - beans
+          - health
+          - routes
+          - httptrace
