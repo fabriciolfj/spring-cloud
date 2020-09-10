@@ -1,15 +1,23 @@
-version: "2"
+version: '2.1'
+
 services:
-  rabbit:
-    image: "rabbitmq:3-management"
-    container_name: prepaid.rabbitmq
+  rabbitmq:
+    networks:
+      - my-network
+    image: rabbitmq:3.7.8-management
+    mem_limit: 350m
     ports:
-      - "15672:15672"
-      - "5672:5672"
-    environment:
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
+      - 5672:5672
+      - 15672:15672
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
   mysql:
+    networks:
+      - my-network
     image: mysql:5.7.21
     command: --lower_case_table_names=1
     environment:
@@ -18,3 +26,21 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: "no"
     ports:
       - 3306:3306
+
+  zipkin:
+    image: openzipkin/zipkin:2.12.9
+    networks:
+      - my-network
+    environment:
+      - RABBIT_ADDRESSES=rabbitmq
+      - STORAGE_TYPE=mem
+    mem_limit: 512m
+    ports:
+      - 9411:9411
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+networks:
+  my-network:
+    name: my-network

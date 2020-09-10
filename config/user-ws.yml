@@ -12,6 +12,8 @@ spring:
     username: guest
     password: guest
 
+albums.url: http://ALBUMS-WS/users/%s/albums
+
 management:
   endpoints:
     web:

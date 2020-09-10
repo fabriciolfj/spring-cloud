@@ -1,4 +1,4 @@
-token.expiration_time: 86400
+token.expiration_time: 86400000
 token.secret: teste2
 login.url.path: /users/login
 

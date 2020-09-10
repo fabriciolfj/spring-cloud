@@ -1,8 +1,10 @@
 package com.github.fabriciolfj.photoAppApiUsers.api.share;
 
+import com.github.fabriciolfj.photoAppApiUsers.api.model.AlbumResponseModel;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 public class UserDTO implements Serializable {
@@ -15,4 +17,5 @@ public class UserDTO implements Serializable {
     private String password;
     private String userId;
     private String encryptedPassword;
+    private List<AlbumResponseModel> albums;
 }
